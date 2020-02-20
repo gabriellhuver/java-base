@@ -1,0 +1,17 @@
+server.port: 8000
+authorization.url: https://peaceful-badlands-17242.herokuapp.com
+spring:
+  application:
+    name: users
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  datasource:
+    continue-on-error: true
+    testOnBorrow: true
+    validationQuery: SELECT 1
+    url: jdbc:mysql://root:root@${DB_URL:localhost}/users?useSsl=false
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
