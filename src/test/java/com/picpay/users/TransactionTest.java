@@ -65,7 +65,7 @@ public class TransactionTest  extends AbstractTest {
         User user = userRepository.save( TestUtil.createDummyUser());
         User user2 = userRepository.save( TestUtil.createDummyUser());
         String uri = "/transactions";
-        String inputJson = super.mapToJson(Transaction.builder().payeeId(user.getId()).payerId(user2.getId()).value(new BigDecimal(fakeValuesService.numerify("###.##"))).build());
+        String inputJson = super.mapToJson(Transaction.builder().payeeId(user.getId()).payerId(user2.getId()).value(new BigDecimal(100)).build());
         System.out.println(inputJson);
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
                 .contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
